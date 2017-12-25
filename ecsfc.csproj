@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EDEC2FE4-E333-48E6-8D53-736F85F2BB08}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ecsfc</RootNamespace>
+    <AssemblyName>ecsfc</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="abnormal_maintain.aspx" />
+    <Content Include="amend_work_time.aspx" />
+    <Content Include="bin\ecsfc.dll" />
+    <Content Include="bin\ecsfc.pdb" />
+    <Content Include="bin\Microsoft.Threading.Tasks.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Microsoft.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Microsoft.Threading.Tasks.xml" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="compare_time.txt" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap3\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap3\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap3\bootstrap.css" />
+    <Content Include="Content\bootstrap3\bootstrap.min.css" />
+    <Content Include="Content\CysleLayStyle.css" />
+    <Content Include="Content\dark.css" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap-theme.css" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap-theme.min.css" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap.css" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap.min.css" />
+    <Content Include="Content\ecsfcKanbanStyles\ecsfcBaseStyle.css">
+      <DependentUpon>ecsfcBaseStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\ecsfcBaseStyle.min.css">
+      <DependentUpon>ecsfcBaseStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\ecsfcKanbanStyles\js\bootstrap.js" />
+    <Content Include="Content\ecsfcKanbanStyles\js\bootstrap.min.js" />
+    <Content Include="Content\ecsfcKanbanStyles\js\npm.js" />
+    <Content Include="Content\ecsfcKanbanStyles\pmanhourCPG.css">
+      <DependentUpon>pmanhourCPG.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\pmanhourCPG.min.css">
+      <DependentUpon>pmanhourCPG.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\procRecordpageStyle.css">
+      <DependentUpon>procRecordpageStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\procRecordpageStyle.min.css">
+      <DependentUpon>procRecordpageStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\sectionKanbanStyle.css">
+      <DependentUpon>sectionKanbanStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\sectionKanbanStyle.min.css">
+      <DependentUpon>sectionKanbanStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\grdRowEffect.css" />
+    <Content Include="Content\machChkSysStyles\machChkSysStyle.css">
+      <DependentUpon>machChkSysStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\machChkSysStyle.min.css">
+      <DependentUpon>machChkSysStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\machMaintStyle.css">
+      <DependentUpon>machMaintStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\machMaintStyle.min.css">
+      <DependentUpon>machMaintStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsChkpageStyle.css">
+      <DependentUpon>mcsChkpageStyle.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsChkpageStyle.min.css">
+      <DependentUpon>mcsChkpageStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsHomepage.css">
+      <DependentUpon>mcsHomepage.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsHomepage.min.css">
+      <DependentUpon>mcsHomepage.css</DependentUpon>
+    </Content>
+    <Content Include="Content\main.css" />
+    <Content Include="Content\plugins\tooltipster\sideTip\themes\tooltipster-sideTip-borderless.min.css" />
+    <Content Include="Content\plugins\tooltipster\sideTip\themes\tooltipster-sideTip-light.min.css" />
+    <Content Include="Content\plugins\tooltipster\sideTip\themes\tooltipster-sideTip-noir.min.css" />
+    <Content Include="Content\plugins\tooltipster\sideTip\themes\tooltipster-sideTip-punk.min.css" />
+    <Content Include="Content\plugins\tooltipster\sideTip\themes\tooltipster-sideTip-shadow.min.css" />
+    <Content Include="Content\popup.css" />
+    <Content Include="Content\section.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\tooltipster.bundle.css" />
+    <Content Include="Content\tooltipster.bundle.min.css" />
+    <Content Include="Content\tooltipster.core.css" />
+    <Content Include="Content\tooltipster.core.min.css" />
+    <Content Include="cprjWorkingStatusKanban.aspx" />
+    <Content Include="cprj_sechedule_kanban.aspx" />
+    <Content Include="cprj_specific_empl.aspx" />
+    <Content Include="cprj_worker_specific.aspx" />
+    <Content Include="cprj_working_page.aspx" />
+    <Content Include="CycleLay.html" />
+    <Content Include="dateTimeSelectPage.html" />
+    <Content Include="default.aspx" />
+    <Content Include="error_kind_maintain.aspx" />
+    <Content Include="error_maintain.aspx" />
+    <Content Include="FixedPProKanban.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="footer_01.jpg" />
+    <Content Include="footer_02.jpg" />
+    <Content Include="footer_03.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="header_image.jpg" />
+    <Content Include="header_image_01.jpg" />
+    <Content Include="header_image_02.jpg" />
+    <Content Include="header_image_03.jpg" />
+    <Content Include="home_page.jpg" />
+    <Content Include="images\close-btn.gif" />
+    <Content Include="images\dark_days_dash.png" />
+    <Content Include="images\dark_hours_dash.png" />
+    <Content Include="images\dark_minutes_dash.png" />
+    <Content Include="images\dark_seconds_dash.png" />
+    <Content Include="images\dark_weeks_dash.png" />
+    <Content Include="images\dash.png" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\open-btn.gif" />
+    <Content Include="images\OR_Logo.jpg" />
+    <Content Include="index_page.aspx" />
+    <Content Include="layer-v2.0\demo.html" />
+    <Content Include="layer-v2.0\layer\extend\layer.ext.js" />
+    <Content Include="layer-v2.0\layer\layer.js" />
+    <Content Include="layer-v2.0\layer\skin\default\icon-ext.png" />
+    <Content Include="layer-v2.0\layer\skin\default\icon.png" />
+    <Content Include="layer-v2.0\layer\skin\default\loading-0.gif" />
+    <Content Include="layer-v2.0\layer\skin\default\loading-1.gif" />
+    <Content Include="layer-v2.0\layer\skin\default\loading-2.gif" />
+    <Content Include="layer-v2.0\layer\skin\layer.css" />
+    <Content Include="layer-v2.0\layer\skin\layer.ext.css" />
+    <Content Include="layer-v2.0\layer\layer2.js" />
+    <Content Include="layer-v2.0\載陔祩.txt" />
+    <Content Include="locationMaint.aspx" />
+    <Content Include="machChkMaint.aspx" />
+    <Content Include="management_page.aspx" />
+    <Content Include="MCS_chkpage.aspx" />
+    <Content Include="MCS_homepage.aspx" />
+    <Content Include="OR_LOGO-100.jpg" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Handler1.ashx" />
+    <Content Include="pmhc_TempVer.aspx" />
+    <Content Include="pop_windows.aspx" />
+    <Content Include="position_maintain.aspx" />
+    <Content Include="receiveMsg.aspx" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\cookiesControl.js" />
+    <Content Include="Scripts\ecsfcMain\locationDataCtrl.js" />
+    <Content Include="Scripts\ecsfcMain\pmanhourCPG.js" />
+    <Content Include="Scripts\mcsJS\cycleLay.js" />
+    <Content Include="Scripts\ecsfcMain\mangePage.js" />
+    <Content Include="Scripts\freqfunc.js" />
+    <Content Include="Scripts\gridviewRowEffect.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\wells.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\utilities.less" />
+    <Content Include="Content\bootstrap\type.less" />
+    <Content Include="Content\bootstrap\tooltip.less" />
+    <Content Include="Content\bootstrap\thumbnails.less" />
+    <Content Include="Content\bootstrap\theme.less" />
+    <Content Include="Content\bootstrap\tables.less" />
+    <Content Include="Content\bootstrap\scaffolding.less" />
+    <Content Include="Content\bootstrap\responsive-utilities.less" />
+    <Content Include="Content\bootstrap\responsive-embed.less" />
+    <Content Include="Content\bootstrap\progress-bars.less" />
+    <Content Include="Content\bootstrap\print.less" />
+    <Content Include="Content\bootstrap\popovers.less" />
+    <Content Include="Content\bootstrap\panels.less" />
+    <Content Include="Content\bootstrap\pagination.less" />
+    <Content Include="Content\bootstrap\pager.less" />
+    <Content Include="Content\bootstrap\normalize.less" />
+    <Content Include="Content\bootstrap\navs.less" />
+    <Content Include="Content\bootstrap\navbar.less" />
+    <Content Include="Content\bootstrap\modals.less" />
+    <Content Include="Content\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="Content\bootstrap\mixins\text-overflow.less" />
+    <Content Include="Content\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="Content\bootstrap\mixins\table-row.less" />
+    <Content Include="Content\bootstrap\mixins\tab-focus.less" />
+    <Content Include="Content\bootstrap\mixins\size.less" />
+    <Content Include="Content\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="Content\bootstrap\mixins\resize.less" />
+    <Content Include="Content\bootstrap\mixins\reset-text.less" />
+    <Content Include="Content\bootstrap\mixins\reset-filter.less" />
+    <Content Include="Content\bootstrap\mixins\progress-bar.less" />
+    <Content Include="Content\bootstrap\mixins\panels.less" />
+    <Content Include="Content\bootstrap\mixins\pagination.less" />
+    <Content Include="Content\bootstrap\mixins\opacity.less" />
+    <Content Include="Content\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="Content\bootstrap\mixins\nav-divider.less" />
+    <Content Include="Content\bootstrap\mixins\list-group.less" />
+    <Content Include="Content\bootstrap\mixins\labels.less" />
+    <Content Include="Content\bootstrap\mixins\image.less" />
+    <Content Include="Content\bootstrap\mixins\hide-text.less" />
+    <Content Include="Content\bootstrap\mixins\grid-framework.less" />
+    <Content Include="Content\bootstrap\mixins\grid.less" />
+    <Content Include="Content\bootstrap\mixins\gradients.less" />
+    <Content Include="Content\bootstrap\mixins\forms.less" />
+    <Content Include="Content\bootstrap\mixins\clearfix.less" />
+    <Content Include="Content\bootstrap\mixins\center-block.less" />
+    <Content Include="Content\bootstrap\mixins\buttons.less" />
+    <Content Include="Content\bootstrap\mixins\border-radius.less" />
+    <Content Include="Content\bootstrap\mixins\background-variant.less" />
+    <Content Include="Content\bootstrap\mixins\alerts.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
+    <Content Include="Content\bootstrap\media.less" />
+    <Content Include="Content\bootstrap\list-group.less" />
+    <Content Include="Content\bootstrap\labels.less" />
+    <Content Include="Content\bootstrap\jumbotron.less" />
+    <Content Include="Content\bootstrap\input-groups.less" />
+    <Content Include="Content\bootstrap\grid.less" />
+    <Content Include="Content\bootstrap\glyphicons.less" />
+    <Content Include="Content\bootstrap\forms.less" />
+    <Content Include="Content\bootstrap\dropdowns.less" />
+    <Content Include="Content\bootstrap\component-animations.less" />
+    <Content Include="Content\bootstrap\code.less" />
+    <Content Include="Content\bootstrap\close.less" />
+    <Content Include="Content\bootstrap\carousel.less" />
+    <Content Include="Content\bootstrap\buttons.less" />
+    <Content Include="Content\bootstrap\button-groups.less" />
+    <Content Include="Content\bootstrap\breadcrumbs.less" />
+    <Content Include="Content\bootstrap\bootstrap.less" />
+    <Content Include="Content\bootstrap\badges.less" />
+    <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="Content\bootstrap-datetimepicker-build.less" />
+    <Content Include="Content\_bootstrap-datetimepicker.less" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\machChkSysStyles\machChkSysStyle.scss" />
+    <Content Include="Content\machChkSysStyles\machChkSysStyle.css.map">
+      <DependentUpon>machChkSysStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\machMaintStyle.scss" />
+    <Content Include="Content\machChkSysStyles\machMaintStyle.css.map">
+      <DependentUpon>machMaintStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\sectionKanbanStyle.scss" />
+    <Content Include="Content\ecsfcKanbanStyles\sectionKanbanStyle.css.map">
+      <DependentUpon>sectionKanbanStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\ecsfcKanbanStyles\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\ecsfcKanbanStyles\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\ecsfcKanbanStyles\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap-theme.css.map" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap.css.map" />
+    <Content Include="Content\ecsfcKanbanStyles\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap3\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap3\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap3\bootstrap.css.map" />
+    <Content Include="Content\bootstrap3\bootstrap.min.css.map" />
+    <Content Include="Content\ecsfcKanbanStyles\ecsfcBaseStyle.scss" />
+    <Content Include="Content\ecsfcKanbanStyles\ecsfcBaseStyle.css.map">
+      <DependentUpon>ecsfcBaseStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsHomepage.scss" />
+    <Content Include="Content\machChkSysStyles\mcsHomepage.css.map">
+      <DependentUpon>mcsHomepage.css</DependentUpon>
+    </Content>
+    <Content Include="Content\machChkSysStyles\mcsChkpageStyle.scss" />
+    <Content Include="Content\machChkSysStyles\mcsChkpageStyle.css.map">
+      <DependentUpon>mcsChkpageStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\procRecordpageStyle.scss" />
+    <Content Include="Content\ecsfcKanbanStyles\procRecordpageStyle.css.map">
+      <DependentUpon>procRecordpageStyle.css</DependentUpon>
+    </Content>
+    <Content Include="Content\ecsfcKanbanStyles\pmanhourCPG.scss" />
+    <Content Include="Content\ecsfcKanbanStyles\pmanhourCPG.css.map">
+      <DependentUpon>pmanhourCPG.css</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery.lwtCountdown-1.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <Content Include="Scripts\mcsJS\index2.js" />
+    <Content Include="Scripts\mcsJS\mcsHomeCtrl.js" />
+    <Content Include="Scripts\mcsJS\MCS_chkpageMJ.js" />
+    <Content Include="Scripts\misc.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\plugins\tooltipster\SVG\tooltipster-SVG.js" />
+    <Content Include="Scripts\plugins\tooltipster\SVG\tooltipster-SVG.min.js" />
+    <Content Include="Scripts\popup.js" />
+    <Content Include="Scripts\StatusTransfer.js" />
+    <Content Include="Scripts\tooltipster.bundle.js" />
+    <Content Include="Scripts\tooltipster.bundle.min.js" />
+    <Content Include="Scripts\tooltipster.core.js" />
+    <Content Include="Scripts\tooltipster.core.min.js" />
+    <Content Include="SectionKanbanPage4.aspx" />
+    <Content Include="SectionKanbanPage3.aspx" />
+    <Content Include="SectionKanbanPage2.aspx" />
+    <Content Include="SectionKanbanPage1.aspx" />
+    <Content Include="sinCprjPage.aspx" />
+    <Content Include="webapitest.aspx" />
+    <Content Include="WebForm1.aspx" />
+    <Content Include="layer-v2.0\doc\jquery狟婥.url" />
+    <Content Include="layer-v2.0\doc\layer夥厙.url" />
+    <Content Include="layer-v2.0\doc\layer蝠霜.url" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="Handler2.ashx" />
+    <Content Include="Handler3.ashx" />
+    <Content Include="Handler4.ashx" />
+    <Content Include="Handler5.ashx" />
+    <Content Include="working_sechedule_kanban_PLM.aspx" />
+    <Content Include="working_sechedule_kanban.aspx" />
+    <Content Include="bin\ecsfc.dll.config" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="images\Thumbs.db" />
+    <Content Include="calDate.ashx" />
+    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="StyleSheet1.css" />
+    <Content Include="pman_hour_collect.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="wStatus.ashx" />
+    <Content Include="wholeCprjStatus.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="abnormal_maintain.aspx.cs">
+      <DependentUpon>abnormal_maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="abnormal_maintain.aspx.designer.cs">
+      <DependentUpon>abnormal_maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="amend_work_time.aspx.cs">
+      <DependentUpon>amend_work_time.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="amend_work_time.aspx.designer.cs">
+      <DependentUpon>amend_work_time.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\comment_class1.cs" />
+    <Compile Include="calDate.ashx.cs">
+      <DependentUpon>calDate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ChkErrorController.cs" />
+    <Compile Include="comembslistController.cs" />
+    <Compile Include="cooperationListController.cs" />
+    <Compile Include="CprjController.cs" />
+    <Compile Include="cprjWorkingStatusKanban.aspx.cs">
+      <DependentUpon>cprjWorkingStatusKanban.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cprjWorkingStatusKanban.aspx.designer.cs">
+      <DependentUpon>cprjWorkingStatusKanban.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cprj_sechedule_kanban.aspx.cs">
+      <DependentUpon>cprj_sechedule_kanban.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cprj_sechedule_kanban.aspx.designer.cs">
+      <DependentUpon>cprj_sechedule_kanban.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cprj_specific_empl.aspx.cs">
+      <DependentUpon>cprj_specific_empl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cprj_specific_empl.aspx.designer.cs">
+      <DependentUpon>cprj_specific_empl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cprj_worker_specific.aspx.cs">
+      <DependentUpon>cprj_worker_specific.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cprj_worker_specific.aspx.designer.cs">
+      <DependentUpon>cprj_worker_specific.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cprj_working_page.aspx.cs">
+      <DependentUpon>cprj_working_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cprj_working_page.aspx.designer.cs">
+      <DependentUpon>cprj_working_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="employeeController.cs" />
+    <Compile Include="errorController.cs" />
+    <Compile Include="errorStatusController.cs" />
+    <Compile Include="error_kind_maintain.aspx.cs">
+      <DependentUpon>error_kind_maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error_kind_maintain.aspx.designer.cs">
+      <DependentUpon>error_kind_maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error_maintain.aspx.cs">
+      <DependentUpon>error_maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error_maintain.aspx.designer.cs">
+      <DependentUpon>error_maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="etypeController.cs" />
+    <Compile Include="FileUploadController.cs" />
+    <Compile Include="FixedPProKanban.aspx.cs">
+      <DependentUpon>FixedPProKanban.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FixedPProKanban.aspx.designer.cs">
+      <DependentUpon>FixedPProKanban.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="flowCprjController.cs" />
+    <Compile Include="fphub.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler5.ashx.cs">
+      <DependentUpon>Handler5.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler4.ashx.cs">
+      <DependentUpon>Handler4.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler3.ashx.cs">
+      <DependentUpon>Handler3.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler2.ashx.cs">
+      <DependentUpon>Handler2.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="index_page.aspx.cs">
+      <DependentUpon>index_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index_page.aspx.designer.cs">
+      <DependentUpon>index_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lineIDController.cs" />
+    <Compile Include="linemembsController.cs" />
+    <Compile Include="locationController.cs" />
+    <Compile Include="locationMaint.aspx.cs">
+      <DependentUpon>locationMaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="locationMaint.aspx.designer.cs">
+      <DependentUpon>locationMaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="machChkMaint.aspx.cs">
+      <DependentUpon>machChkMaint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="machChkMaint.aspx.designer.cs">
+      <DependentUpon>machChkMaint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MainCprjController.cs" />
+    <Compile Include="management_page.aspx.cs">
+      <DependentUpon>management_page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management_page.aspx.designer.cs">
+      <DependentUpon>management_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mcsChkListDataController.cs" />
+    <Compile Include="MCS_chkpage.aspx.cs">
+      <DependentUpon>MCS_chkpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MCS_chkpage.aspx.designer.cs">
+      <DependentUpon>MCS_chkpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MCS_homepage.aspx.cs">
+      <DependentUpon>MCS_homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MCS_homepage.aspx.designer.cs">
+      <DependentUpon>MCS_homepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="memberController.cs" />
+    <Compile Include="newestController.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="pmhc_TempVer.aspx.cs">
+      <DependentUpon>pmhc_TempVer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pmhc_TempVer.aspx.designer.cs">
+      <DependentUpon>pmhc_TempVer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pop_windows.aspx.cs">
+      <DependentUpon>pop_windows.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pop_windows.aspx.designer.cs">
+      <DependentUpon>pop_windows.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="position_maintain.aspx.cs">
+      <DependentUpon>position_maintain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="position_maintain.aspx.designer.cs">
+      <DependentUpon>position_maintain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pman_hour_collect.aspx.cs">
+      <DependentUpon>pman_hour_collect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pman_hour_collect.aspx.designer.cs">
+      <DependentUpon>pman_hour_collect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\SystemMailMessage.cs" />
+    <Compile Include="receiveMsg.aspx.cs">
+      <DependentUpon>receiveMsg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="receiveMsg.aspx.designer.cs">
+      <DependentUpon>receiveMsg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SectionKanbanPage4.aspx.cs">
+      <DependentUpon>SectionKanbanPage4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SectionKanbanPage4.aspx.designer.cs">
+      <DependentUpon>SectionKanbanPage4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SectionKanbanPage3.aspx.cs">
+      <DependentUpon>SectionKanbanPage3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SectionKanbanPage3.aspx.designer.cs">
+      <DependentUpon>SectionKanbanPage3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SectionKanbanPage2.aspx.cs">
+      <DependentUpon>SectionKanbanPage2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SectionKanbanPage2.aspx.designer.cs">
+      <DependentUpon>SectionKanbanPage2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SectionKanbanPage1.aspx.cs">
+      <DependentUpon>SectionKanbanPage1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SectionKanbanPage1.aspx.designer.cs">
+      <DependentUpon>SectionKanbanPage1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sinCprjPage.aspx.cs">
+      <DependentUpon>sinCprjPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sinCprjPage.aspx.designer.cs">
+      <DependentUpon>sinCprjPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="spcRecordController.cs" />
+    <Compile Include="Startup1.cs" />
+    <Compile Include="statusTransHub.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentsController.cs" />
+    <Compile Include="machChkDataController.cs" />
+    <Compile Include="webapitest.aspx.cs">
+      <DependentUpon>webapitest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webapitest.aspx.designer.cs">
+      <DependentUpon>webapitest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wholeCprjStatus.ashx.cs">
+      <DependentUpon>wholeCprjStatus.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="working_sechedule_kanban_PLM.aspx.cs">
+      <DependentUpon>working_sechedule_kanban_PLM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="working_sechedule_kanban_PLM.aspx.designer.cs">
+      <DependentUpon>working_sechedule_kanban_PLM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="working_sechedule_kanban.aspx.cs">
+      <DependentUpon>working_sechedule_kanban.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="working_sechedule_kanban.aspx.designer.cs">
+      <DependentUpon>working_sechedule_kanban.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wStatus.ashx.cs">
+      <DependentUpon>wStatus.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="layer-v2.0\App_LocalResources\" />
+    <Folder Include="obj\Release\TempPE\" />
+    <Folder Include="UploadedFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61499/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

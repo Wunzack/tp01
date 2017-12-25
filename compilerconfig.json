@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "Content/machChkSysStyles/mcsChkpage.css",
+    "inputFile": "Content/machChkSysStyles/mcsChkpage.scss"
+  },
+  {
+    "outputFile": "Content/machChkSysStyles/StyleSheet1.css",
+    "inputFile": "Content/machChkSysStyles/StyleSheet1.scss"
+  },
+  {
+    "outputFile": "Content/machChkSysStyles/mcsChkpageStyle.css",
+    "inputFile": "Content/machChkSysStyles/mcsChkpageStyle.scss"
+  },
+  {
+    "outputFile": "Content/machChkSysStyles/machMaintStyle.css",
+    "inputFile": "Content/machChkSysStyles/machMaintStyle.scss"
+  }
+]

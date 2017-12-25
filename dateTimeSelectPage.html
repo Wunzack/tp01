@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <link href="Content/bootstrap3/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/moment.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="scripts/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="Content/bootstrap-datetimepicker.css" />
+</head>
+<body>
+
+        <div style="width:inherit">
+            <div class='form-group'>
+                        <div id="datetimepicker1"></div>
+            </div>
+            <input id="Comfirm" class="form-control btn btn-success" type="button" value="確認" style="display:none"/>
+            <script type="text/javascript">
+                var index = parent.layer.getFrameIndex(window.name);
+                $(function () {
+                    
+                    $('#datetimepicker1').datetimepicker({
+                        showTodayButton: true,
+                        format: "DD-MM-YYYY HH:mm",
+                        inline: true,
+                        sideBySide: false
+                    });
+                    $('#datetimepicker1').on('dp.change', function (event) {
+                        var ndt = new Date();
+                        parent.$('#datetimepicker4').val(event.date.format('YYYY-MM-DD HH:mm')+':'+ndt.getSeconds());
+                        //console.log($('#Comfirm').is(':visible'));
+                        $('#Comfirm').toggle(!$(this).is(':hidden'));
+                    });
+                    $('#Comfirm').click(function () {
+                        parent.layer.close(index);
+                    })
+                    
+                })
+            </script>
+        </div>
+</body>
+</html>
